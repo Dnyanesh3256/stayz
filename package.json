@@ -1,0 +1,24 @@
+{
+  "name": "stayz",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000s\u0000t\u0000a\u0000y\u0000z\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dnyanesh3256/stayz.git"
+  },
+  "keywords": [],
+  "author": "Dnyaneshwar Tupe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dnyanesh3256/stayz/issues"
+  },
+  "homepage": "https://github.com/Dnyanesh3256/stayz#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "mongoose": "^8.16.4"
+  }
+}
