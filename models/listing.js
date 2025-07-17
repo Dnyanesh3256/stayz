@@ -13,8 +13,13 @@ const listingSchema = new Schema({
     },
 
     image: {
-        type: String, 
-        required: true,       
+        filename: String,
+        url: String,
+        // default: "https://thumbs.dreamstime.com/b/luxury-villa-project-under-construction-59226098.jpg",
+        // set: (v) =>
+        //     v === ""
+        //     ? "https://thumbs.dreamstime.com/b/luxury-villa-project-under-construction-59226098.jpg" 
+        //     : v,     
     },
 
     price: {

@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Dnyanesh3256/stayz#readme",
   "dependencies": {
+    "ejs": "^3.1.10",
     "express": "^5.1.0",
     "mongoose": "^8.16.4"
   }
