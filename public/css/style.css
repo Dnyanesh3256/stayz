@@ -1,8 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700&display=swap');
 
 body {
     font-family: "Plus Jakarta Sans", sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    flex: 1;
 }
 
 /* NAVBAR */
@@ -89,4 +95,35 @@ body {
 .card-img-overlay:hover {
     opacity: 0.2;
     background-color: white;
+}
+
+/* NEW PAGE */
+.add-btn {
+    background-color: #fe424d !important;
+    border: none !important;
+}
+
+/* EDIT PAGE */
+.edit-btn {
+    background-color: #fe424d !important;
+    border: none !important;
+}
+
+/* SHOW PAGE */
+.show-img {
+    height: 30vh;
+}
+
+.btns {
+    display: flex;
+}
+
+.show-card {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.delete-btn {
+    background-color: #fe424d !important;
+    border: none !important;
 }
