@@ -69,13 +69,11 @@ app.get("/listings/new", (req, res) => {
 
 app.get("/listings/:id", wrapAsync(async (req, res) => {
     let { id } = req.params;
-    let listing = await Listing.findById(id);
+    let listing = await Listing.findById(id).populate("reviews");
     res.render("listings/show.ejs", { listing });
 }));
 
 app.post("/listings", validateListing, wrapAsync(async (req, res) => {
-    
-
     let newListing = new Listing(req.body.listing);
     await newListing.save();
     res.redirect("/listings"); 
@@ -94,9 +92,6 @@ app.put("/listings/:id", validateListing, wrapAsync(async (req, res) => {
 }));
 
 app.delete("/listings/:id", wrapAsync(async (req, res) => {
-    if(!req.body.listing){
-        throw new ExpressError(400, "Send valid data for listing!");
-    }
     let { id } = req.params;
     let deletedListing = await Listing.findByIdAndDelete(id);
     console.log(deletedListing);
@@ -117,6 +112,14 @@ app.post("/listings/:id/reviews", validateReview, wrapAsync(async (req, res) => 
     res.redirect(`/listings/${id}`);
 }));
 
+app.delete("/listings/:id/reviews/:reviewId", wrapAsync(async (req, res) => {
+    let { id, reviewId } = req.params;
+
+    await Listing.findByIdAndUpdate(id, { $pull: { reviews: reviewId } });
+    await Review.findByIdAndDelete(reviewId);
+
+    res.redirect(`/listings/${id}`);
+}));
 
 app.use((req, res, next) => {
     next(new ExpressError(404, "Page Not Found!"));
