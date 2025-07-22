@@ -3,6 +3,7 @@ if(process.env.NODE_ENV != "production"){
 }
 
 const express = require("express");
+const MongoStore = require("connect-mongo");
 const port = 8080;
 const app = express();
 const mongoose = require("mongoose");
@@ -21,8 +22,7 @@ const flash = require("connect-flash");
 const passport = require("passport");
 const User = require("./models/user.js");
 const LocalStrategy = require("passport-local");
-
-const MONGO_URL = "mongodb://127.0.0.1:27017/stayz";
+const { error } = require("console");
 
 const dbUrl = process.env.ATLAS_DB_URL;
 
@@ -47,8 +47,21 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.engine("ejs", ejsMate);
 
+const store = MongoStore.create({
+    mongoUrl: dbUrl,
+    crypto: {
+        secret: process.env.SECRET
+    },
+    touchAfter: 24 * 3600,
+});
+
+store.on ("error", () => {
+    console.log("Error in Mongo Session Store : ", error);
+});
+
 const sessionOptions = {
-    secret: "secretcode",
+    store: store,
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: true,
     cookie: {
@@ -78,18 +91,12 @@ app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);
 
-
-// app.get("/", (req, res) => {
-//     res.send("working");
-// });
-
 app.use((req, res, next) => {
     next(new ExpressError(404, "Page Not Found!"));
 });
 
 app.use((err, req, res, next) => {
     let {statusCode = 500, message = "Something went wrong!"} = err;
-    // res.status(statusCode).send(message);
     res.status(statusCode).render("error.ejs", { message });
 });
 
