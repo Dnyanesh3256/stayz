@@ -24,8 +24,10 @@ const LocalStrategy = require("passport-local");
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/stayz";
 
+const dbUrl = process.env.ATLAS_DB_URL;
+
 async function main() {
-    await mongoose.connect(MONGO_URL);
+    await mongoose.connect(dbUrl);
 }
 
 main()
