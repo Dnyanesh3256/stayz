@@ -1,22 +1,26 @@
 <% layout("/layouts/boilerplate.ejs") %>
 
-<div class="row mt-3">
-    <h2 class="col-6 offset-3"><b>Login to StayZ</b></h2>
-    <div class="col-6 offset-3">
-        <form action="/login" method="post" novalidate class="needs-validation">
-            <div class="mb-3">
-                <label for="username" class="form-label">Username : </label>
-                <input name="username" type="text" placeholder="enter username" class="form-control" required>
-                <div class="invalid-feedback">Please enter a valid username!</div>
-            </div>
+<div class="container mt-3">
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-10 col-md-8 col-lg-6">
+            <h2 class="text-center mb-4"><b>Login to StayZ</b></h2>
+            <form action="/login" method="post" novalidate class="needs-validation">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username : </label>
+                    <input name="username" type="text" placeholder="enter username" class="form-control" required>
+                    <div class="invalid-feedback">Please enter a valid username!</div>
+                </div>
 
-            <div class="mb-3">
-                <label for="password" class="form-label">Password : </label>
-                <input name="password" type="password" placeholder="enter password" class="form-control" required>
-                <div class="invalid-feedback">Please enter a valid password!</div>
-            </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password : </label>
+                    <input name="password" type="password" placeholder="enter password" class="form-control" required>
+                    <div class="invalid-feedback">Please enter a valid password!</div>
+                </div>
 
-            <button class="btn btn-success">Login</button>
-        </form>
+                <div class="d-grid">
+                    <button class="btn btn-success btn-lg">Login</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>

@@ -184,6 +184,12 @@ body {
   border: none !important;
 }
 
+.review-card {
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: 1rem;
+}
+
 /* REVIEW SECTION */
 /* .review-sec {
     padding-left: 0;
@@ -236,4 +242,61 @@ body {
   height: 100%;
   width: 4px;
   background-color: #ff385c;
+}
+
+/* Filter styles */
+.filter {
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  background: #f8f9fa;
+  flex-shrink: 0;
+}
+
+.filter:hover {
+  background-color: #e9ecef;
+}
+
+.filter.active-filter {
+  background-color: #000 !important;
+  color: white !important;
+}
+
+.filter.active-filter i {
+  color: white !important;
+}
+
+#filters {
+  scrollbar-width: thin;
+  scrollbar-color: #ddd transparent;
+  padding-bottom: 4px; /* Space for scrollbar */
+}
+
+#filters::-webkit-scrollbar {
+  height: 4px;
+}
+
+#filters::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#filters::-webkit-scrollbar-thumb {
+  background-color: #ddd;
+  border-radius: 20px;
+}
+
+/* Tax toggle specific styles */
+.tax-toggle {
+  background: #f8f9fa;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+}
+
+@media (max-width: 767.98px) {
+  .tax-toggle {
+    width: fit-content;
+    margin: 0 auto;
+  }
 }
