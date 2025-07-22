@@ -6,11 +6,11 @@
 </script>
 <body>
     <div class="row mt-3">
-        <div class="col-8 offset-3">
+        <div class="col-8 offset-2">
             <h2><b><%= listing.title %></b></h2>
         </div>
 
-        <div class="card col-6 offset-3 show-card listing-card">
+        <div class="card col-8 offset-2 show-card listing-card">
             <img src="<%= listing.image.url %>" class="card-img-top show-img" alt="listing_image">
             <div class="card-body">
                 <p class="card-text">Owned by : <b> <%= listing.owner.username %> </b></p>
@@ -22,7 +22,7 @@
         </div>
 
         <% if (currUser && currUser._id.equals(listing.owner._id)) { %>
-            <div class="btns">
+            <div class="btns col-8 offset--1">
                 <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark col-1 offset-3">
                     Edit
                 </a>
@@ -35,7 +35,7 @@
     
         <br>
 
-        <div class="col-8 offset-3"> 
+        <div class="col-8 offset-2"> 
 
             <% if (currUser) { %>
 
@@ -44,10 +44,6 @@
                 <h4>Leave a review...</h4>
 
                 <form action="/listings/<%= listing._id %>/reviews" method="post" class="mb-3 needs-validation" novalidate>
-                    <!-- <div class="rating mt-3 mb-3">
-                        <label for="rating" class="form-label">Rating : </label>
-                        <input type="range" name="review[rating]" id="rating" min="1" max="5" class="form-range">
-                    </div> -->
 
                     <div class="rating mt-3 mb-3">
                         <label for="rating" class="form-label">Rating : </label>
@@ -108,7 +104,7 @@
         </div>
     </div>
 
-    <div class="col-8 offset-3 mb-3">
+    <div class="col-8 offset-2 mb-3">
         <h3>Where you'll be : </h3>
         <div id="map">
 

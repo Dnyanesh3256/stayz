@@ -16,7 +16,7 @@ body {
   height: 5rem;
 }
 
-.fa-compass {
+.fa-hotel {
   color: #fe424d;
   font-size: 2rem;
 }
@@ -58,6 +58,23 @@ body {
 .f-info-socials i {
   font-size: 1.3rem;
   margin: 0.5rem;
+}
+
+.twitter:hover {
+  color: black;
+}
+
+.instagram:hover {
+  color: #e1306c;
+}
+
+.linkedin:hover {
+  color: blue;
+}
+
+.a-footer-link {
+  text-decoration: none;
+  color: #222222;
 }
 
 /* index-js cards */
@@ -176,7 +193,8 @@ body {
 /* MAP */
 #map {
   height: 400px;
-  width: 109vh;
+  width: 112vh;
+  border-radius: 25px;
 }
 
 /* SEARCH-BOX IN NAVBAR.EJS */
@@ -200,4 +218,22 @@ body {
 .search-inp {
   border-radius: 25px;
   padding: 0.5rem 3rem 0.5rem 3rem;
+}
+
+/* TERMS AND CONDITIONS PAGE */
+.content-container {
+  max-width: 1200px;
+}
+.section-title {
+  position: relative;
+  padding-left: 1rem;
+}
+.section-title:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background-color: #ff385c;
 }

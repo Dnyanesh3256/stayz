@@ -95,6 +95,10 @@ app.get("/", (req, res) => {
     res.redirect("/listings");
 });
 
+app.get("/stayz/terms", (req, res) => {
+    res.render("termsConditions.ejs");
+});
+
 app.use((req, res, next) => {
     next(new ExpressError(404, "Page Not Found!"));
 });
