@@ -1,0 +1,36 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "app.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "public/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/public/(.*)",
+      "dest": "/public/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "app.js"
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production",
+    "ATLAS_DB_URL": "@stayz-atlas-db-url",
+    "SECRET": "@stayz-session-secret",
+    "CLOUDINARY_CLOUD_NAME": "@stayz-cloudinary-name",
+    "CLOUDINARY_API_KEY": "@stayz-cloudinary-key",
+    "CLOUDINARY_API_SECRET": "@stayz-cloudinary-secret"
+  },
+  "build": {
+    "env": {
+      "NODE_ENV": "production"
+    }
+  }
+}
